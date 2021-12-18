@@ -7,13 +7,14 @@
 package main
 
 import (
+	"github.com/go-kratos/kratos/v2"
+	"github.com/google/wire"
+
 	"Pheidippides/internal/biz"
 	"Pheidippides/internal/conf"
 	"Pheidippides/internal/data"
 	"Pheidippides/internal/server"
 	"Pheidippides/internal/service"
-	"github.com/go-kratos/kratos/v2"
-	"github.com/google/wire"
 )
 
 // newApp init kratos application.
