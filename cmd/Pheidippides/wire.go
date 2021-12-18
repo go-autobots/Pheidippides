@@ -4,22 +4,19 @@
  * @Description //TODO
  * @Date 2021/12/18 11:53 12月
  **/
-package pheidippides
+package main
 
 import (
+	"Pheidippides/internal/biz"
+	"Pheidippides/internal/conf"
+	"Pheidippides/internal/data"
+	"Pheidippides/internal/server"
+	"Pheidippides/internal/service"
 	"github.com/go-kratos/kratos/v2"
 	"github.com/google/wire"
-	"pheidippides/internal/biz"
-	"pheidippides/internal/conf"
-	"pheidippides/internal/data"
-	"pheidippides/internal/server"
-	"pheidippides/internal/service"
 )
 
-// initApp init kratos application.
+// newApp init kratos application.
 func initApp(*conf.Server, *conf.Redis) (*kratos.App, error) {
 	panic(wire.Build(server.SrvSet, data.ProviderSet, biz.ProviderSet, service.ProviderSet, newApp))
 }
-
-
-

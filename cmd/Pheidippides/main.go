@@ -4,14 +4,15 @@
  * @Description //TODO
  * @Date 2021/12/18 11:53 12月
  **/
-package pheidippides
+package main
 
 import (
+	"Pheidippides/internal/conf"
+
 	"flag"
 	"github.com/go-kratos/kratos/v2/config"
 	"github.com/go-kratos/kratos/v2/config/file"
 	"os"
-	"pheidippides/internal/conf"
 
 	"github.com/go-kratos/kratos/v2"
 	"github.com/go-kratos/kratos/v2/transport/grpc"
@@ -30,7 +31,7 @@ var (
 
 func init() {
 	flag.StringVar(&flagconf, "conf", "/Users/fzk27/self-dev/Pheidippides/configs/config.yaml", "config path, eg: -conf config.yaml")
-	flag.StringVar(&Name, "name", "pheidippides", "App Name, eg: -name value")
+	flag.StringVar(&Name, "name", "Pheidippides", "App Name, eg: -name value")
 	flag.StringVar(&Version, "version", "0.1", "App version, eg: -version value")
 }
 
