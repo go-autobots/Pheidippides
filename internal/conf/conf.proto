@@ -1,0 +1,37 @@
+syntax = "proto3";
+package conf;
+
+option go_package = ".;conf";
+
+message Bootstrap {
+  App app = 1;
+  Server server = 2;
+  Redis redis = 3;
+}
+
+message App {
+  string env = 1;
+  string mode = 2;
+}
+
+message Server {
+  message GRPC {
+    // 一般无需指定 默认就是tcp
+    string network = 1;
+    string addr = 2;
+    int32 timeout = 3;
+  }
+  GRPC grpc = 2;
+}
+
+message Redis {
+  string host = 1;
+  int32 port = 2;
+  string user = 3;
+  string password = 4;
+  int32 db = 5;
+  float readTimeout = 6;
+  float writeTimeout = 7;
+  int32 idleConns = 8;
+  int32 poolSize = 9;
+}

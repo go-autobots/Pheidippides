@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+package pheidippides.v1;
+
+option go_package = "Pheidippides/api/pheidiqueue/v1;v1";
+
+message PhiediResponse {
+  string content = 1;
+}
+
+message SendResponse {
+  bool isSuccess = 1;
+}
+
+message Pheidippides {
+  string topic = 1;
+  repeated string content = 2;
+}
+
+service PheidiQueue {
+  rpc SendTo (Pheidippides) returns (SendResponse) {}
+  rpc GetFrom (Pheidippides) returns (PhiediResponse) {}
+}
+
+
+
+

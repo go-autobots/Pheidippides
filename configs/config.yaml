@@ -1,0 +1,17 @@
+app:
+  env: local
+  mode: debug
+server:
+  grpc:
+    addr: 0.0.0.0:9091
+    timeout: 1
+redis:
+  host: 127.0.0.1
+  port: 6379
+  user: root
+  password:
+  readTimeout: 0.2
+  writeTimeout: 0.2
+  db: 8
+  poolSize: 100
+  idleConns: 100
