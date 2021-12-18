@@ -1,3 +1,5 @@
+// +build wireinject
+
 /**
  * @project Pheidippides
  * @Author 27
