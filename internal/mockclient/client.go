@@ -35,7 +35,7 @@ func mockGetFrom(c v1.PheidiQueueClient) {
 
 	r, getErr := c.GetFrom(ctx, &v1.Pheidippides{Topic: "xxxxx"})
 	if getErr != nil {
-		panic(getErr)
+		fmt.Println("get err", getErr)
 	}
 
 	fmt.Println("response content ---->", r.GetContent())
@@ -45,9 +45,9 @@ func mockSend(c v1.PheidiQueueClient) {
 	ctx, cancel := context.WithTimeout(context.Background(), 3*time.Second)
 	defer cancel()
 
-	r, sendErr := c.SendTo(ctx, &v1.Pheidippides{Topic: "qqqq", Contents: []string{"1", "2"}})
+	r, sendErr := c.SendTo(ctx, &v1.Pheidippides{Topic: "qqqq", Content: "123"})
 	if sendErr != nil {
-		panic(sendErr)
+		fmt.Println("send err", sendErr)
 	}
 
 	fmt.Println("send  res ---->", r.GetIsSuccess())

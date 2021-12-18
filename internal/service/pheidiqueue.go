@@ -13,7 +13,7 @@ func (s *PheidiQueueService) SendTo(ctx context.Context, req *v1.Pheidippides) (
 	if valideErr != nil {
 		return nil, valideErr
 	}
-	sendErr := s.q.ReceiveFrom(req.GetContents(), req.GetTopic())
+	sendErr := s.q.ReceiveFrom(req.GetContent(), req.GetTopic())
 	if sendErr != nil {
 		return nil, validator.QueueError(sendErr.Error())
 	}
