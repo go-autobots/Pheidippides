@@ -9,7 +9,8 @@ IOT Queue Broker, 以马拉松缔造者命名。
 - [X] config.yaml
 - [X] queue interface
 - [ ] redis implement
-  - [ ] redis docker compose file 
+  - [X] redis docker compose file 
 - [X] wire(看是否需要，可以不用其实)
-    - [ ] some problem
+    - [X] fix some problem
 - [ ] 启动
+- [ ] health check
