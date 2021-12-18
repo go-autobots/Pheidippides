@@ -6,9 +6,7 @@
 package main
 
 import (
-	"Pheidippides/internal/biz"
 	"Pheidippides/internal/conf"
-	"Pheidippides/internal/data"
 	"Pheidippides/internal/server"
 	"Pheidippides/internal/service"
 	"Pheidippides/pkg/infra"
@@ -19,11 +17,9 @@ import (
 
 // newApp init kratos application.
 func initApp(confServer *conf.Server, redis *conf.Redis) (*kratos.App, error) {
-	queueType := data.NewRedisType()
+	queueType := service.NewRedisType()
 	queue := infra.NewQueue(queueType, redis)
-	pheidiQueue := data.NewPeidiQueue(queue)
-	pheidiUseCase := biz.NewPheidiUseCase(pheidiQueue)
-	pheidiQueueService := service.NewPheidiQueueService(pheidiUseCase)
+	pheidiQueueService := service.NewPheidiQueueService(queue)
 	grpcServer := server.NewGRPCServer(confServer, pheidiQueueService)
 	app := newApp(grpcServer)
 	return app, nil

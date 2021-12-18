@@ -12,5 +12,5 @@ IOT Queue Broker, 以马拉松缔造者命名。
   - [X] redis docker compose file 
 - [X] wire(看是否需要，可以不用其实)
     - [X] fix some problem
-- [ ] 启动
+- [X] 启动
 - [ ] health check

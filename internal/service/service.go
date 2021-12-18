@@ -8,18 +8,22 @@ package service
 
 import (
 	v1 "Pheidippides/api/pheidiqueue/v1"
-	"Pheidippides/internal/biz"
+	"Pheidippides/pkg/infra"
 	"github.com/google/wire"
 )
 
 // ProviderSet is service providers.
-var ProviderSet = wire.NewSet(NewPheidiQueueService)
+var ProviderSet = wire.NewSet(NewRedisType, infra.NewQueue, NewPheidiQueueService)
+
+func NewRedisType() infra.QueueType {
+	return infra.Redis
+}
 
 type PheidiQueueService struct {
 	v1.UnimplementedPheidiQueueServer
-	useCase *biz.PheidiUseCase
+	q infra.Queue
 }
 
-func NewPheidiQueueService(uc *biz.PheidiUseCase) *PheidiQueueService {
-	return &PheidiQueueService{useCase: uc}
+func NewPheidiQueueService(queue infra.Queue) *PheidiQueueService {
+	return &PheidiQueueService{q: queue}
 }

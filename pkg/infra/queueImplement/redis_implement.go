@@ -53,12 +53,11 @@ func NewRedis(
 	return rd
 }
 
-// Send
-func (rd *RedisDriver)Send(topic string, contents ...string) error {
+func (rd *RedisDriver)ReceiveFrom(contents []string, inTopic string) error{
 	return nil
 }
 
-// Get
-func (rd *RedisDriver)Get(topic string) (string, error) {
+// GetFrom 从 topic 拿一个 count
+func (rd *RedisDriver)GetFrom(topic string) (string, error) {
 	return "", nil
 }

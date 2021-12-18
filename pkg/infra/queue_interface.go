@@ -23,8 +23,10 @@ const (
 
 // Queue 缓存通用接口
 type Queue interface {
-	Send(topic string, contents ...string) error
-	Get(topic string) (string, error)
+	// ReceiveFrom 接收 contents 放进 topic 对应队列 里面
+	ReceiveFrom(contents []string, inTopic string) error
+	// GetFrom 从 topic 拿一个 count
+	GetFrom(topic string) (string, error)
 }
 
 // NewQueue 返回实现 Cache 接口的对象
