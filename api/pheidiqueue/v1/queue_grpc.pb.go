@@ -32,7 +32,7 @@ func NewPheidiQueueClient(cc grpc.ClientConnInterface) PheidiQueueClient {
 
 func (c *pheidiQueueClient) SendTo(ctx context.Context, in *Pheidippides, opts ...grpc.CallOption) (*SendResponse, error) {
 	out := new(SendResponse)
-	err := c.cc.Invoke(ctx, "/Pheidippides.v1.PheidiQueue/SendTo", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/pheidippides.v1.PheidiQueue/SendTo", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -41,7 +41,7 @@ func (c *pheidiQueueClient) SendTo(ctx context.Context, in *Pheidippides, opts .
 
 func (c *pheidiQueueClient) GetFrom(ctx context.Context, in *Pheidippides, opts ...grpc.CallOption) (*PhiediResponse, error) {
 	out := new(PhiediResponse)
-	err := c.cc.Invoke(ctx, "/Pheidippides.v1.PheidiQueue/GetFrom", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/pheidippides.v1.PheidiQueue/GetFrom", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -90,7 +90,7 @@ func _PheidiQueue_SendTo_Handler(srv interface{}, ctx context.Context, dec func(
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/Pheidippides.v1.PheidiQueue/SendTo",
+		FullMethod: "/pheidippides.v1.PheidiQueue/SendTo",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(PheidiQueueServer).SendTo(ctx, req.(*Pheidippides))
@@ -108,7 +108,7 @@ func _PheidiQueue_GetFrom_Handler(srv interface{}, ctx context.Context, dec func
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/Pheidippides.v1.PheidiQueue/GetFrom",
+		FullMethod: "/pheidippides.v1.PheidiQueue/GetFrom",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(PheidiQueueServer).GetFrom(ctx, req.(*Pheidippides))
@@ -120,7 +120,7 @@ func _PheidiQueue_GetFrom_Handler(srv interface{}, ctx context.Context, dec func
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
 var PheidiQueue_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "Pheidippides.v1.PheidiQueue",
+	ServiceName: "pheidippides.v1.PheidiQueue",
 	HandlerType: (*PheidiQueueServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{

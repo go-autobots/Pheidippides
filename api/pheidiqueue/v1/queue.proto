@@ -14,7 +14,7 @@ message SendResponse {
 
 message Pheidippides {
   string topic = 1;
-  repeated string content = 2;
+  repeated string contents = 2;
 }
 
 service PheidiQueue {
