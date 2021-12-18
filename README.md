@@ -1,6 +1,8 @@
 # Pheidippides
 IOT Queue Broker, 以马拉松缔造者命名。
 
+[mock client demo](internal/mockclient/client.go)
+
 简单起见先不适配第三方 logger 控制台(标准)输出
 
 - [X] config proto
