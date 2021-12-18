@@ -7,13 +7,21 @@ import (
 	v1 "Pheidippides/api/pheidiqueue/v1"
 )
 
+const (
+	topicPrefix = "Pheidippides_"
+)
+
+func pheidippidesKey(originKey string) string {
+	return topicPrefix + originKey
+}
+
 func (s *PheidiQueueService) SendTo(ctx context.Context, req *v1.Pheidippides) (*v1.SendResponse, error) {
 	// Pheidippides 的 contents 存入 topic 里
 	valideErr := validator.Send(req)
 	if valideErr != nil {
 		return nil, valideErr
 	}
-	sendErr := s.q.ReceiveFrom(req.GetContent(), req.GetTopic())
+	sendErr := s.q.ReceiveFrom(req.GetContent(), pheidippidesKey(req.GetTopic()))
 	if sendErr != nil {
 		return nil, validator.QueueError(sendErr.Error())
 	}
@@ -26,9 +34,9 @@ func (s *PheidiQueueService) GetFrom(ctx context.Context, req *v1.Pheidippides) 
 	if valideErr != nil {
 		return nil, valideErr
 	}
-	_, getErr := s.q.GetFrom(req.GetTopic())
+	res, getErr := s.q.GetFrom(pheidippidesKey(req.GetTopic()))
 	if getErr != nil {
 		return nil, validator.QueueError(getErr.Error())
 	}
-	return &v1.PhiediResponse{Content: "xx888xx"}, nil
+	return &v1.PhiediResponse{Content: res}, nil
 }

@@ -25,15 +25,16 @@ func main() {
 	}
 	defer conn.Close()
 	c := v1.NewPheidiQueueClient(conn)
-	mockGetFrom(c)
 	mockSend(c)
+	//mockGetFrom(c)
+	//mockSend(c)
 }
 
 func mockGetFrom(c v1.PheidiQueueClient) {
 	ctx, cancel := context.WithTimeout(context.Background(), 3*time.Second)
 	defer cancel()
 
-	r, getErr := c.GetFrom(ctx, &v1.Pheidippides{Topic: "xxxxx"})
+	r, getErr := c.GetFrom(ctx, &v1.Pheidippides{Topic: "qqqq"})
 	if getErr != nil {
 		fmt.Println("get err", getErr)
 	}
