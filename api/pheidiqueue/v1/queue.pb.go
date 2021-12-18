@@ -214,15 +214,15 @@ func file_api_pheidiqueue_v1_queue_proto_rawDescGZIP() []byte {
 
 var file_api_pheidiqueue_v1_queue_proto_msgTypes = make([]protoimpl.MessageInfo, 3)
 var file_api_pheidiqueue_v1_queue_proto_goTypes = []interface{}{
-	(*PhiediResponse)(nil), // 0: pheidippides.v1.PhiediResponse
-	(*SendResponse)(nil),   // 1: pheidippides.v1.SendResponse
-	(*Pheidippides)(nil),   // 2: pheidippides.v1.Pheidippides
+	(*PhiediResponse)(nil), // 0: Pheidippides.v1.PhiediResponse
+	(*SendResponse)(nil),   // 1: Pheidippides.v1.SendResponse
+	(*Pheidippides)(nil),   // 2: Pheidippides.v1.Pheidippides
 }
 var file_api_pheidiqueue_v1_queue_proto_depIdxs = []int32{
-	2, // 0: pheidippides.v1.PheidiQueue.SendTo:input_type -> pheidippides.v1.Pheidippides
-	2, // 1: pheidippides.v1.PheidiQueue.GetFrom:input_type -> pheidippides.v1.Pheidippides
-	1, // 2: pheidippides.v1.PheidiQueue.SendTo:output_type -> pheidippides.v1.SendResponse
-	0, // 3: pheidippides.v1.PheidiQueue.GetFrom:output_type -> pheidippides.v1.PhiediResponse
+	2, // 0: Pheidippides.v1.PheidiQueue.SendTo:input_type -> Pheidippides.v1.Pheidippides
+	2, // 1: Pheidippides.v1.PheidiQueue.GetFrom:input_type -> Pheidippides.v1.Pheidippides
+	1, // 2: Pheidippides.v1.PheidiQueue.SendTo:output_type -> Pheidippides.v1.SendResponse
+	0, // 3: Pheidippides.v1.PheidiQueue.GetFrom:output_type -> Pheidippides.v1.PhiediResponse
 	2, // [2:4] is the sub-list for method output_type
 	0, // [0:2] is the sub-list for method input_type
 	0, // [0:0] is the sub-list for extension type_name

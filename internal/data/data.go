@@ -7,9 +7,9 @@
 package data
 
 import (
+	"Pheidippides/internal/biz"
+	"Pheidippides/pkg/infra"
 	"github.com/google/wire"
-	"pheidippides/internal/biz"
-	"pheidippides/pkg/infra"
 )
 
 // ProviderSet is data providers.
@@ -22,4 +22,3 @@ func NewPeidiQueue(queue infra.Queue) biz.PheidiQueue {
 func NewRedisType() infra.QueueType {
 	return infra.Redis
 }
-

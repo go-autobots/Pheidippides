@@ -7,21 +7,19 @@
 package service
 
 import (
+	v1 "Pheidippides/api/pheidiqueue/v1"
+	"Pheidippides/internal/biz"
 	"github.com/google/wire"
-	v1 "pheidippides/api/pheidiqueue/v1"
-	"pheidippides/internal/biz"
 )
 
 // ProviderSet is service providers.
 var ProviderSet = wire.NewSet(NewPheidiQueueService)
 
-
 type PheidiQueueService struct {
 	v1.UnimplementedPheidiQueueServer
-	useCase  *biz.PheidiUseCase
+	useCase *biz.PheidiUseCase
 }
 
-func NewPheidiQueueService() *PheidiQueueService {
-	return &PheidiQueueService{}
+func NewPheidiQueueService(uc *biz.PheidiUseCase) *PheidiQueueService {
+	return &PheidiQueueService{useCase: uc}
 }
-

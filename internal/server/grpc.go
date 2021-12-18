@@ -5,9 +5,9 @@ import (
 	"github.com/go-kratos/kratos/v2/transport/grpc"
 	"time"
 
-	v1 "pheidippides/api/pheidiqueue/v1"
-	"pheidippides/internal/conf"
-	"pheidippides/internal/service"
+	v1 "Pheidippides/api/pheidiqueue/v1"
+	"Pheidippides/internal/conf"
+	"Pheidippides/internal/service"
 )
 
 // NewGRPCServer new a gRPC server.

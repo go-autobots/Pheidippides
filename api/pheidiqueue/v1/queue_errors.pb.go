@@ -94,7 +94,7 @@ func file_api_pheidiqueue_v1_queue_errors_proto_rawDescGZIP() []byte {
 
 var file_api_pheidiqueue_v1_queue_errors_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
 var file_api_pheidiqueue_v1_queue_errors_proto_goTypes = []interface{}{
-	(QueueServiceErrorReason)(0), // 0: pheidippides.v1.QueueServiceErrorReason
+	(QueueServiceErrorReason)(0), // 0: Pheidippides.v1.QueueServiceErrorReason
 }
 var file_api_pheidiqueue_v1_queue_errors_proto_depIdxs = []int32{
 	0, // [0:0] is the sub-list for method output_type

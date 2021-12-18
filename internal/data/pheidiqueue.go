@@ -6,7 +6,7 @@
  **/
 package data
 
-import "pheidippides/pkg/infra"
+import "Pheidippides/pkg/infra"
 
 type pheidiQueue struct {
 	q infra.Queue

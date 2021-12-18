@@ -7,10 +7,10 @@
 package infra
 
 import (
-	"pheidippides/pkg/infra/queueImplement"
+	"Pheidippides/pkg/infra/queueImplement"
 	"time"
 
-	"pheidippides/internal/conf"
+	"Pheidippides/internal/conf"
 )
 
 type QueueType int
