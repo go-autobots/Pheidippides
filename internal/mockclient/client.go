@@ -15,16 +15,20 @@ import (
 	v1 "Pheidippides/api/pheidiqueue/v1"
 )
 
-func main() {
-	target := "localhost:9091"
-	conn, dialErr := grpc.Dial(target,
+func newClient(targetRPCAddr string) v1.PheidiQueueClient {
+	conn, dialErr := grpc.Dial(targetRPCAddr,
 		grpc.WithInsecure(), grpc.WithBlock(),
 	)
 	if dialErr != nil {
 		panic(dialErr)
 	}
 	defer conn.Close()
-	c := v1.NewPheidiQueueClient(conn)
+	return v1.NewPheidiQueueClient(conn)
+}
+
+func main() {
+	target := "localhost:9091"
+	c := newClient(target)
 	mockSend(c)
 	//mockGetFrom(c)
 	//mockSend(c)
