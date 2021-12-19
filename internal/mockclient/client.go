@@ -15,23 +15,25 @@ import (
 	v1 "Pheidippides/api/pheidiqueue/v1"
 )
 
-func newClient(targetRPCAddr string) v1.PheidiQueueClient {
+func newClient(targetRPCAddr string) (*grpc.ClientConn, v1.PheidiQueueClient) {
 	conn, dialErr := grpc.Dial(targetRPCAddr,
 		grpc.WithInsecure(), grpc.WithBlock(),
 	)
 	if dialErr != nil {
 		panic(dialErr)
 	}
-	defer conn.Close()
-	return v1.NewPheidiQueueClient(conn)
+
+	//defer conn.Close()
+	return conn, v1.NewPheidiQueueClient(conn)
 }
 
 func main() {
 	target := "localhost:9091"
-	c := newClient(target)
-	mockSend(c)
-	//mockGetFrom(c)
-	//mockSend(c)
+	conn, client := newClient(target)
+	defer conn.Close()
+	mockSend(client)
+	//mockGetFrom(client)
+	//mockSend(client)
 }
 
 func mockGetFrom(c v1.PheidiQueueClient) {
@@ -50,7 +52,7 @@ func mockSend(c v1.PheidiQueueClient) {
 	ctx, cancel := context.WithTimeout(context.Background(), 3*time.Second)
 	defer cancel()
 
-	r, sendErr := c.SendTo(ctx, &v1.Pheidippides{Topic: "qqqq", Content: "123"})
+	r, sendErr := c.SendTo(ctx, &v1.Pheidippides{Topic: "qqqq", Content: "456"})
 	if sendErr != nil {
 		fmt.Println("send err", sendErr)
 	}
